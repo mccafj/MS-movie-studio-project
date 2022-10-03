@@ -1,0 +1,725 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "C:\\Users\\JonMc\\Documents\\Flatiron\\MS-movie-studio-project\\zippedData\n"
+     ]
+    }
+   ],
+   "source": [
+    "cd zippedData/"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " Volume in drive C is Windows\n",
+      " Volume Serial Number is 62FE-3091\n",
+      "\n",
+      " Directory of C:\\Users\\JonMc\\Documents\\Flatiron\\MS-movie-studio-project\\zippedData\n",
+      "\n",
+      "09/30/2022  05:16 PM    <DIR>          .\n",
+      "10/03/2022  12:08 PM    <DIR>          ..\n",
+      "09/30/2022  05:14 PM            53,544 bom.movie_gross.csv.gz\n",
+      "09/30/2022  05:14 PM        67,149,708 im.db.zip\n",
+      "09/30/2022  05:14 PM           498,202 rt.movie_info.tsv.gz\n",
+      "09/30/2022  05:14 PM         3,402,194 rt.reviews.tsv.gz\n",
+      "09/30/2022  05:14 PM           827,840 tmdb.movies.csv.gz\n",
+      "09/30/2022  05:14 PM           153,218 tn.movie_budgets.csv.gz\n",
+      "               6 File(s)     72,084,706 bytes\n",
+      "               2 Dir(s)  405,129,371,648 bytes free\n"
+     ]
+    }
+   ],
+   "source": [
+    "ls"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "RangeIndex(start=0, stop=3387, step=1)"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df_bom = pd.read_csv('bom.movie_gross.csv.gz')\n",
+    "df_bom.index"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>title</th>\n",
+       "      <th>studio</th>\n",
+       "      <th>domestic_gross</th>\n",
+       "      <th>foreign_gross</th>\n",
+       "      <th>year</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Toy Story 3</td>\n",
+       "      <td>BV</td>\n",
+       "      <td>415000000.0</td>\n",
+       "      <td>652000000</td>\n",
+       "      <td>2010</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Alice in Wonderland (2010)</td>\n",
+       "      <td>BV</td>\n",
+       "      <td>334200000.0</td>\n",
+       "      <td>691300000</td>\n",
+       "      <td>2010</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Harry Potter and the Deathly Hallows Part 1</td>\n",
+       "      <td>WB</td>\n",
+       "      <td>296000000.0</td>\n",
+       "      <td>664300000</td>\n",
+       "      <td>2010</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Inception</td>\n",
+       "      <td>WB</td>\n",
+       "      <td>292600000.0</td>\n",
+       "      <td>535700000</td>\n",
+       "      <td>2010</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Shrek Forever After</td>\n",
+       "      <td>P/DW</td>\n",
+       "      <td>238700000.0</td>\n",
+       "      <td>513900000</td>\n",
+       "      <td>2010</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                                         title studio  domestic_gross  \\\n",
+       "0                                  Toy Story 3     BV     415000000.0   \n",
+       "1                   Alice in Wonderland (2010)     BV     334200000.0   \n",
+       "2  Harry Potter and the Deathly Hallows Part 1     WB     296000000.0   \n",
+       "3                                    Inception     WB     292600000.0   \n",
+       "4                          Shrek Forever After   P/DW     238700000.0   \n",
+       "\n",
+       "  foreign_gross  year  \n",
+       "0     652000000  2010  \n",
+       "1     691300000  2010  \n",
+       "2     664300000  2010  \n",
+       "3     535700000  2010  \n",
+       "4     513900000  2010  "
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df_bom.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "RangeIndex(start=0, stop=1560, step=1)"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df_rt_movie = pd.read_csv('rt.movie_info.tsv.gz', delimiter=\"\\t\")\n",
+    "df_rt_movie.index"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>id</th>\n",
+       "      <th>synopsis</th>\n",
+       "      <th>rating</th>\n",
+       "      <th>genre</th>\n",
+       "      <th>director</th>\n",
+       "      <th>writer</th>\n",
+       "      <th>theater_date</th>\n",
+       "      <th>dvd_date</th>\n",
+       "      <th>currency</th>\n",
+       "      <th>box_office</th>\n",
+       "      <th>runtime</th>\n",
+       "      <th>studio</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1</td>\n",
+       "      <td>This gritty, fast-paced, and innovative police...</td>\n",
+       "      <td>R</td>\n",
+       "      <td>Action and Adventure|Classics|Drama</td>\n",
+       "      <td>William Friedkin</td>\n",
+       "      <td>Ernest Tidyman</td>\n",
+       "      <td>Oct 9, 1971</td>\n",
+       "      <td>Sep 25, 2001</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>104 minutes</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>3</td>\n",
+       "      <td>New York City, not-too-distant-future: Eric Pa...</td>\n",
+       "      <td>R</td>\n",
+       "      <td>Drama|Science Fiction and Fantasy</td>\n",
+       "      <td>David Cronenberg</td>\n",
+       "      <td>David Cronenberg|Don DeLillo</td>\n",
+       "      <td>Aug 17, 2012</td>\n",
+       "      <td>Jan 1, 2013</td>\n",
+       "      <td>$</td>\n",
+       "      <td>600,000</td>\n",
+       "      <td>108 minutes</td>\n",
+       "      <td>Entertainment One</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>5</td>\n",
+       "      <td>Illeana Douglas delivers a superb performance ...</td>\n",
+       "      <td>R</td>\n",
+       "      <td>Drama|Musical and Performing Arts</td>\n",
+       "      <td>Allison Anders</td>\n",
+       "      <td>Allison Anders</td>\n",
+       "      <td>Sep 13, 1996</td>\n",
+       "      <td>Apr 18, 2000</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>116 minutes</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>6</td>\n",
+       "      <td>Michael Douglas runs afoul of a treacherous su...</td>\n",
+       "      <td>R</td>\n",
+       "      <td>Drama|Mystery and Suspense</td>\n",
+       "      <td>Barry Levinson</td>\n",
+       "      <td>Paul Attanasio|Michael Crichton</td>\n",
+       "      <td>Dec 9, 1994</td>\n",
+       "      <td>Aug 27, 1997</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>128 minutes</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>7</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NR</td>\n",
+       "      <td>Drama|Romance</td>\n",
+       "      <td>Rodney Bennett</td>\n",
+       "      <td>Giles Cooper</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>200 minutes</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   id                                           synopsis rating  \\\n",
+       "0   1  This gritty, fast-paced, and innovative police...      R   \n",
+       "1   3  New York City, not-too-distant-future: Eric Pa...      R   \n",
+       "2   5  Illeana Douglas delivers a superb performance ...      R   \n",
+       "3   6  Michael Douglas runs afoul of a treacherous su...      R   \n",
+       "4   7                                                NaN     NR   \n",
+       "\n",
+       "                                 genre          director  \\\n",
+       "0  Action and Adventure|Classics|Drama  William Friedkin   \n",
+       "1    Drama|Science Fiction and Fantasy  David Cronenberg   \n",
+       "2    Drama|Musical and Performing Arts    Allison Anders   \n",
+       "3           Drama|Mystery and Suspense    Barry Levinson   \n",
+       "4                        Drama|Romance    Rodney Bennett   \n",
+       "\n",
+       "                            writer  theater_date      dvd_date currency  \\\n",
+       "0                   Ernest Tidyman   Oct 9, 1971  Sep 25, 2001      NaN   \n",
+       "1     David Cronenberg|Don DeLillo  Aug 17, 2012   Jan 1, 2013        $   \n",
+       "2                   Allison Anders  Sep 13, 1996  Apr 18, 2000      NaN   \n",
+       "3  Paul Attanasio|Michael Crichton   Dec 9, 1994  Aug 27, 1997      NaN   \n",
+       "4                     Giles Cooper           NaN           NaN      NaN   \n",
+       "\n",
+       "  box_office      runtime             studio  \n",
+       "0        NaN  104 minutes                NaN  \n",
+       "1    600,000  108 minutes  Entertainment One  \n",
+       "2        NaN  116 minutes                NaN  \n",
+       "3        NaN  128 minutes                NaN  \n",
+       "4        NaN  200 minutes                NaN  "
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df_rt_movie.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "UnicodeDecodeError",
+     "evalue": "'utf-8' codec can't decode byte 0xa0 in position 4: invalid start byte",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mUnicodeDecodeError\u001b[0m                        Traceback (most recent call last)",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._convert_tokens\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._convert_with_dtype\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._string_convert\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers._string_box_utf8\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;31mUnicodeDecodeError\u001b[0m: 'utf-8' codec can't decode byte 0xa0 in position 4: invalid start byte",
+      "\nDuring handling of the above exception, another exception occurred:\n",
+      "\u001b[1;31mUnicodeDecodeError\u001b[0m                        Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-17-1f38cf9d7499>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mdf_rt_reviews\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mpd\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mread_csv\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m'rt.reviews.tsv.gz'\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mdelimiter\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;34m\"\\t\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m \u001b[0mdf_rt_reviews\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mindex\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\envs\\learn-env\\lib\\site-packages\\pandas\\io\\parsers.py\u001b[0m in \u001b[0;36mread_csv\u001b[1;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)\u001b[0m\n\u001b[0;32m    684\u001b[0m     )\n\u001b[0;32m    685\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 686\u001b[1;33m     \u001b[1;32mreturn\u001b[0m \u001b[0m_read\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mfilepath_or_buffer\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mkwds\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    687\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    688\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\envs\\learn-env\\lib\\site-packages\\pandas\\io\\parsers.py\u001b[0m in \u001b[0;36m_read\u001b[1;34m(filepath_or_buffer, kwds)\u001b[0m\n\u001b[0;32m    456\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    457\u001b[0m     \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 458\u001b[1;33m         \u001b[0mdata\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mparser\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mread\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mnrows\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    459\u001b[0m     \u001b[1;32mfinally\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    460\u001b[0m         \u001b[0mparser\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mclose\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\envs\\learn-env\\lib\\site-packages\\pandas\\io\\parsers.py\u001b[0m in \u001b[0;36mread\u001b[1;34m(self, nrows)\u001b[0m\n\u001b[0;32m   1194\u001b[0m     \u001b[1;32mdef\u001b[0m \u001b[0mread\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mnrows\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;32mNone\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1195\u001b[0m         \u001b[0mnrows\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0m_validate_integer\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"nrows\"\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mnrows\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 1196\u001b[1;33m         \u001b[0mret\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_engine\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mread\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mnrows\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   1197\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1198\u001b[0m         \u001b[1;31m# May alter columns / col_dict\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m~\\anaconda3\\envs\\learn-env\\lib\\site-packages\\pandas\\io\\parsers.py\u001b[0m in \u001b[0;36mread\u001b[1;34m(self, nrows)\u001b[0m\n\u001b[0;32m   2153\u001b[0m     \u001b[1;32mdef\u001b[0m \u001b[0mread\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mnrows\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;32mNone\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   2154\u001b[0m         \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 2155\u001b[1;33m             \u001b[0mdata\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_reader\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mread\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mnrows\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   2156\u001b[0m         \u001b[1;32mexcept\u001b[0m \u001b[0mStopIteration\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   2157\u001b[0m             \u001b[1;32mif\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_first_chunk\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader.read\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._read_low_memory\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._read_rows\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._convert_column_data\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._convert_tokens\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._convert_with_dtype\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._string_convert\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;32mpandas\\_libs\\parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers._string_box_utf8\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;31mUnicodeDecodeError\u001b[0m: 'utf-8' codec can't decode byte 0xa0 in position 4: invalid start byte"
+     ]
+    }
+   ],
+   "source": [
+    "df_rt_reviews = pd.read_csv('rt.reviews.tsv.gz', delimiter=\"\\t\")\n",
+    "df_rt_reviews.index"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "RangeIndex(start=0, stop=26517, step=1)"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df_tmdb = pd.read_csv('tmdb.movies.csv.gz')\n",
+    "df_tmdb.index"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Unnamed: 0</th>\n",
+       "      <th>genre_ids</th>\n",
+       "      <th>id</th>\n",
+       "      <th>original_language</th>\n",
+       "      <th>original_title</th>\n",
+       "      <th>popularity</th>\n",
+       "      <th>release_date</th>\n",
+       "      <th>title</th>\n",
+       "      <th>vote_average</th>\n",
+       "      <th>vote_count</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>0</td>\n",
+       "      <td>[12, 14, 10751]</td>\n",
+       "      <td>12444</td>\n",
+       "      <td>en</td>\n",
+       "      <td>Harry Potter and the Deathly Hallows: Part 1</td>\n",
+       "      <td>33.533</td>\n",
+       "      <td>2010-11-19</td>\n",
+       "      <td>Harry Potter and the Deathly Hallows: Part 1</td>\n",
+       "      <td>7.7</td>\n",
+       "      <td>10788</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1</td>\n",
+       "      <td>[14, 12, 16, 10751]</td>\n",
+       "      <td>10191</td>\n",
+       "      <td>en</td>\n",
+       "      <td>How to Train Your Dragon</td>\n",
+       "      <td>28.734</td>\n",
+       "      <td>2010-03-26</td>\n",
+       "      <td>How to Train Your Dragon</td>\n",
+       "      <td>7.7</td>\n",
+       "      <td>7610</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>2</td>\n",
+       "      <td>[12, 28, 878]</td>\n",
+       "      <td>10138</td>\n",
+       "      <td>en</td>\n",
+       "      <td>Iron Man 2</td>\n",
+       "      <td>28.515</td>\n",
+       "      <td>2010-05-07</td>\n",
+       "      <td>Iron Man 2</td>\n",
+       "      <td>6.8</td>\n",
+       "      <td>12368</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>3</td>\n",
+       "      <td>[16, 35, 10751]</td>\n",
+       "      <td>862</td>\n",
+       "      <td>en</td>\n",
+       "      <td>Toy Story</td>\n",
+       "      <td>28.005</td>\n",
+       "      <td>1995-11-22</td>\n",
+       "      <td>Toy Story</td>\n",
+       "      <td>7.9</td>\n",
+       "      <td>10174</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>4</td>\n",
+       "      <td>[28, 878, 12]</td>\n",
+       "      <td>27205</td>\n",
+       "      <td>en</td>\n",
+       "      <td>Inception</td>\n",
+       "      <td>27.920</td>\n",
+       "      <td>2010-07-16</td>\n",
+       "      <td>Inception</td>\n",
+       "      <td>8.3</td>\n",
+       "      <td>22186</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   Unnamed: 0            genre_ids     id original_language  \\\n",
+       "0           0      [12, 14, 10751]  12444                en   \n",
+       "1           1  [14, 12, 16, 10751]  10191                en   \n",
+       "2           2        [12, 28, 878]  10138                en   \n",
+       "3           3      [16, 35, 10751]    862                en   \n",
+       "4           4        [28, 878, 12]  27205                en   \n",
+       "\n",
+       "                                 original_title  popularity release_date  \\\n",
+       "0  Harry Potter and the Deathly Hallows: Part 1      33.533   2010-11-19   \n",
+       "1                      How to Train Your Dragon      28.734   2010-03-26   \n",
+       "2                                    Iron Man 2      28.515   2010-05-07   \n",
+       "3                                     Toy Story      28.005   1995-11-22   \n",
+       "4                                     Inception      27.920   2010-07-16   \n",
+       "\n",
+       "                                          title  vote_average  vote_count  \n",
+       "0  Harry Potter and the Deathly Hallows: Part 1           7.7       10788  \n",
+       "1                      How to Train Your Dragon           7.7        7610  \n",
+       "2                                    Iron Man 2           6.8       12368  \n",
+       "3                                     Toy Story           7.9       10174  \n",
+       "4                                     Inception           8.3       22186  "
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df_tmdb.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "RangeIndex(start=0, stop=5782, step=1)"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df_tn_budg = pd.read_csv('tn.movie_budgets.csv.gz')\n",
+    "df_tn_budg.index"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>id</th>\n",
+       "      <th>release_date</th>\n",
+       "      <th>movie</th>\n",
+       "      <th>production_budget</th>\n",
+       "      <th>domestic_gross</th>\n",
+       "      <th>worldwide_gross</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1</td>\n",
+       "      <td>Dec 18, 2009</td>\n",
+       "      <td>Avatar</td>\n",
+       "      <td>$425,000,000</td>\n",
+       "      <td>$760,507,625</td>\n",
+       "      <td>$2,776,345,279</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>2</td>\n",
+       "      <td>May 20, 2011</td>\n",
+       "      <td>Pirates of the Caribbean: On Stranger Tides</td>\n",
+       "      <td>$410,600,000</td>\n",
+       "      <td>$241,063,875</td>\n",
+       "      <td>$1,045,663,875</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>3</td>\n",
+       "      <td>Jun 7, 2019</td>\n",
+       "      <td>Dark Phoenix</td>\n",
+       "      <td>$350,000,000</td>\n",
+       "      <td>$42,762,350</td>\n",
+       "      <td>$149,762,350</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>4</td>\n",
+       "      <td>May 1, 2015</td>\n",
+       "      <td>Avengers: Age of Ultron</td>\n",
+       "      <td>$330,600,000</td>\n",
+       "      <td>$459,005,868</td>\n",
+       "      <td>$1,403,013,963</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>5</td>\n",
+       "      <td>Dec 15, 2017</td>\n",
+       "      <td>Star Wars Ep. VIII: The Last Jedi</td>\n",
+       "      <td>$317,000,000</td>\n",
+       "      <td>$620,181,382</td>\n",
+       "      <td>$1,316,721,747</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   id  release_date                                        movie  \\\n",
+       "0   1  Dec 18, 2009                                       Avatar   \n",
+       "1   2  May 20, 2011  Pirates of the Caribbean: On Stranger Tides   \n",
+       "2   3   Jun 7, 2019                                 Dark Phoenix   \n",
+       "3   4   May 1, 2015                      Avengers: Age of Ultron   \n",
+       "4   5  Dec 15, 2017            Star Wars Ep. VIII: The Last Jedi   \n",
+       "\n",
+       "  production_budget domestic_gross worldwide_gross  \n",
+       "0      $425,000,000   $760,507,625  $2,776,345,279  \n",
+       "1      $410,600,000   $241,063,875  $1,045,663,875  \n",
+       "2      $350,000,000    $42,762,350    $149,762,350  \n",
+       "3      $330,600,000   $459,005,868  $1,403,013,963  \n",
+       "4      $317,000,000   $620,181,382  $1,316,721,747  "
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df_tn_budg.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python (learn-env)",
+   "language": "python",
+   "name": "learn-env"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

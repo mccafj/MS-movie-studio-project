@@ -1,14 +1,14 @@
 # Title
 
-**Authors**: Student1, Student2
+**Authors**: Juan Acosta, Holly Gultiano, and Jon McCaffrey
 
 ## Overview
 
-A one-paragraph overview of the project, including the business problem, data, methods, results and recommendations.
+Our project presents an overview of the current film market. Using exploratory and expository data analysis techniques in Python, our 
 
 ## Business Problem
 
-Summary of the business problem you are trying to solve, and the data questions that you plan to answer in order to solve them.
+Microsoft is starting a movie studio (in this hypothetical example). Our aim is to give actionable direction for them to go with this project, based on real world data from the film industry, such as viewer statitics and revenue. 
 
 ***
 Questions to consider:
@@ -19,7 +19,7 @@ Questions to consider:
 
 ## Data
 
-Describe the data being used for this project.
+Our sources of data included IMDB, Rotten Tomatoes, Box Office Mojo, TheNumbers.com, The Movie Database, and Netflix
 
 ***
 Questions to consider:
@@ -49,10 +49,9 @@ Questions to consider:
 * How confident are you that your results would generalize beyond the data you have?
 ***
 
-Here is an example of how to embed images from your sub-folder:
 
 ### Visual 1
-![graph1](./images/viz1.png)
+![graph1](./images/<FILE>)
 
 ## Conclusions
 
@@ -67,9 +66,9 @@ Questions to consider:
 
 ## For More Information
 
-Please review our full analysis in [our Jupyter Notebook](./dsc-phase1-project-template.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
+Please review our full analysis in [our Jupyter Notebook](./<MAIN>.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
 
-For any additional questions, please contact **name & email, name & email**
+For any additional questions, please contact **Juan Acosta email@email, Holly Gultiano akoholographics@gmail.com, Jon McCaffrey email@email**
 
 ## Repository Structure
 
@@ -77,8 +76,9 @@ Describe the structure of your repository and its contents, for example:
 
 ```
 ├── README.md                           <- The top-level README for reviewers of this project
-├── dsc-phase1-project-template.ipynb   <- Narrative documentation of analysis in Jupyter notebook
-├── DS_Project_Presentation.pdf         <- PDF version of project presentation
-├── data                                <- Both sourced externally and generated from code
-└── images                              <- Both sourced externally and generated from code
+├── <MAIN>.ipynb   <- Main notebook for project code
+├── DS_Project_Presentation.pdf         <- PDF of slides for our presentation
+├── Data                                <- Both sourced externally and generated from code
+├── Notes				<- Working notebooks for each member of the authors of this project
+└── images                              <- images used and generated in the project
 ```

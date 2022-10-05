@@ -6,13 +6,13 @@
 
 Our project presents current trends in the film market. Using exploratory and expository data analysis techniques in Python, we are able to give Microsoft Movie Studio recommendations on the most popular and profitable genres of film, and how Microsoft could use its own intellectual property to expand into the growing market of video game inspired movies.  
 
-## Business Problem
+## Business Challenge
 
 Microsoft is starting a movie studio (in this hypothetical example) and are looking to make significant impact as soon as possible in this sector. Our group's aim is to give actionable direction for them to go  with this project, driven by real world data from the film industry. These included such data as viewer statitics and revenue, since they are the strongest indicators of success in the entertainment industry.
 
 ## Data
 
-Our sources of data included IMDB, Rotten Tomatoes, Box Office Mojo, The-Numbers.com, The Movie Database, and Netflix. The variables we found to be most useful are box office revenue, genre IDs, user ratings, total viewer counts, and hours watched for streaming content. For numeric variables, we use summed totals and statistical measures such as averages, and categorical data was cleaned and organized to make it smoothly operable with the numerical data.
+Our sources of data included IMDB, Box Office Mojo, The Movie Database, and Netflix. The variables we found to be most useful are box office revenue, genre IDs, user ratings, total viewer counts, and hours watched for streaming content. For numeric variables, we use summed totals and statistical measures such as averages, and categorical data was cleaned and organized to make it smoothly operable with the numerical data.
 
 
 ## Methods
@@ -39,7 +39,7 @@ Based on the consistent high performance of Action-Adventure and Drama films ove
 
 ## For More Information
 
-Please review our full analysis in [our Jupyter Notebook](./<MAIN>.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
+Please review our full analysis in [our Jupyter Notebook](./MS_Movie_Studio_Project.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
 
 For any additional questions, please contact **Juan Acosta jmaa3108@gmail.com, Holly Gultiano akoholographics@gmail.com, Jon McCaffrey jonmccaffrey524@gmail.com**
 

@@ -1,4 +1,5 @@
-# Title
+# Microsoft Movie Studio Proposal
+
 
 **Authors**: Juan Acosta, Holly Gultiano, and Jon McCaffrey
 
@@ -12,12 +13,11 @@ Microsoft is starting a movie studio (in this hypothetical example) and are look
 
 ## Data
 
-Our sources of data included IMDB, Box Office Mojo, The Movie Database, and Netflix. The variables we found to be most useful are box office revenue, genre IDs, user ratings, total viewer counts, and hours watched for streaming content. For numeric variables, we use summed totals and statistical measures such as averages, and categorical data was cleaned and organized to make it smoothly operable with the numerical data.
+Our sources of data included IMDB, Box Office Mojo, The Movie Database, and Netflix. The variables we found to be most useful are box office revenue, genre IDs, user ratings, total viewer counts, and hours watched for streaming content. To assess the current market trends for digital releases (streaming) compared to those of the box office, we used summary reports from the Motion Pictures Association, retrieved from https://www.mpa-apac.org/wp-content/uploads/2019/03/MPAA-THEME-Report-2018.pdf, and https://www.motionpictures.org/wp-content/uploads/2022/03/MPA-2021-THEME-Report-FINAL.pdf . Video game movie data was sourced from Kaggle https://www.kaggle.com/datasets/bcruise/film-adaptations-of-video-games?select=video_game_films.csv . For numeric variables, we use summed totals and statistical measures such as averages, and categorical data was cleaned and organized to make it smoothly operable with the numerical data.
 
 
 ## Methods
 
-Describe the process for analyzing or modeling the data. For Phase 1, this will be descriptive analysis.
 
 Data exploration and descriptive analysis was performed in Python and SQLite, using the Pandas data analysis and manipulation library, and the Matplotlib/Seaborn libraries to make plots. This was in order to isolate, clean, and organize select variables, correlating them to the most popular and profitable films to produce.
 
@@ -28,8 +28,17 @@ Our analysis suggests the most impactful genres over all datasets spanning a wid
 One striking and relevant indication we discovered is the strong box office return for movies based on video game franchises. This seems like a natural outlet for Microsoft, given the large quantity of popular video game titles in Microsoft's product library.
 
 
-### Visual 1
-![graph1](./images/<FILE>)
+### Visuals of Produced Graphs
+
+![Top 10 Movies by Gross Profit](Images/top_10_gross_profit.png)
+![Top 10 Movies by Popularity on TMDB](Images/top_10_popularity_tmbd_action.png)
+![Top 10 Movies by Rating on TMDB, Action](Images/top_10_rated_tmbd_action.png)
+![Top 10 Movies by Rating on TMDB, Comedy](Images/top_10_rated_tmbd_comedy.png)
+![Top 10 Movies by Rating on TMDB, Drama](Images/top_10_rated_tmbd_drama.png)
+![Top 10 Video Game Movies, from Kaggle](Images/top_10_video_game_movies.png)
+![Top 10 Genres by Hours Watched on Netflix](Images/netflix_top10_genres.png)
+![Top 10 Movies by Hours Watched on Netflix](Images/netflix_top10_titles_hours.png)
+![graph1](./Images/digi_vs_box_revenue.png)
 
 ## Conclusions
 
@@ -49,9 +58,9 @@ Describe the structure of your repository and its contents, for example:
 
 ```
 ├── README.md                           <- The top-level README for reviewers of this project
-├── <MAIN>.ipynb   			<- Main notebook for project code
+├── MS_Move_Studio_Project.ipynb   	<- Main notebook for project code
 ├── DS_Project_Presentation.pdf         <- PDF of slides for our presentation
-├── Data                                <- Both sourced externally and generated from code
+├── zippedData                          <- Both sourced externally and generated from code
 ├── Notes				<- Working notebooks for each member of the authors of this project
 └── Images                              <- images used and generated in the project
 ```

@@ -38,7 +38,7 @@ One striking and relevant indication we discovered is the strong box office retu
 ![Top 10 Video Game Movies, from Kaggle](Images/top_10_video_game_movies.png)
 ![Top 10 Genres by Hours Watched on Netflix](Images/netflix_top10_genres.png)
 ![Top 10 Movies by Hours Watched on Netflix](Images/netflix_top10_titles_hours.png)
-![graph1](./Images/digi_vs_box_revenue.png)
+![Comparison of Revenue, Digital Releases vs Box Office](./Images/digi_vs_box_revenue.png)
 
 ## Conclusions
 
@@ -48,7 +48,7 @@ Based on the consistent high performance of Action-Adventure and Drama films ove
 
 ## For More Information
 
-Please review our full analysis in [our Jupyter Notebook](./MS_Movie_Studio_Project.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
+Please review our full analysis in [our Jupyter Notebook](./MS_Movie_Studio_Project.ipynb) or our [presentation](./MS_Movie_Studio_Project_Slides.pdf).
 
 For any additional questions, please contact **Juan Acosta jmaa3108@gmail.com, Holly Gultiano akoholographics@gmail.com, Jon McCaffrey jonmccaffrey524@gmail.com**
 
